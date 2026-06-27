@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VendaMax PRO - Tudo em 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="vm">VM</span>
+                <h1>VendaMax PRO</h1>
+            </div>
+            <p class="subtitle">Gerador de Anúncios com IA para Afiliadas</p>
+        </header>
+
+        <main>
+            <section id="unlockSection" class="card">
+                <div class="plan-header">
+                    <h2>⚡ Escolha seu Plano</h2>
+                    <span class="badge blocked">🔒 Bloqueado</span>
+                </div>
+                
+                <div class="plans">
+                    <div class="plan">
+                        <h3>R$ 4,90 Avulso - 3 Posts</h3>
+                    </div>
+                    <div class="plan pro">
+                        <h3>💎 PRO Vitalício - 10 Posts Lote</h3>
+                    </div>
+                </div>
+
+                <div class="alert">
+                    <span>🔒 Atenção:</span> Escolha um plano acima para desbloquear a geração de anúncios, modo lote, auto-post e pacote ZIP.
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>🔑 Já tem uma chave? Desbloqueie aqui</h2>
+                <input type="text" id="licenseKey" placeholder="Cole sua chave de acesso aqui (Ex: PRO-2026)">
+                <button id="unlockBtn" class="btn-unlock">✅ Desbloquear Ferramenta</button>
+            </section>
+
+            <section id="appSection" class="hidden">
+                <div class="card">
+                    <h2>Gerador de Anúncios</h2>
+                    <input type="text" id="productUrl" placeholder="Cole o link do produto da Shopee/Mercado Livre">
+                    <div class="mode-selector">
+                        <button id="modeFree" class="active">Gratuito - 3 Posts</button>
+                        <button id="modePro">PRO - 10 Posts Lote</button>
+                    </div>
+                    <button id="generateBtn">Gerar Anúncios</button>
+                </div>
+
+                <div id="results" class="hidden">
+                    <div id="postsContainer"></div>
+                    <div id="proFeatures" class="hidden">
+                        <input type="text" id="webhookUrl" placeholder="URL do webhook Make/Zapier">
+                        <button id="webhookBtn">📤 Enviar para Auto-Post</button>
+                        <button id="zipBtn">📦 Baixar Pacote ZIP</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <h3>🚀 Desbloqueie o VendaMax PRO</h3>
+                <p>Acesso vitalício com geração em lote, auto-post e muito mais!</p>
+                <div class="modal-prices">
+                    <a href="https://mpago.la/2zbECPA" target="_blank" class="btn-buy-avulso">R$4,90 - 3 Posts</a>
+                    <a href="https://mpago.la/2oJvLu7" target="_blank" class="btn-buy-pro">R$97 - Vitalício</a>
+                </div>
+                <button id="closeModal">Fechar</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        VendaMax PRO © 2026 - Ferramenta de trabalho para afiliadas
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
