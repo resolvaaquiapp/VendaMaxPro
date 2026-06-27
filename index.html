@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VendaMax PRO - Tudo em 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🏆 VendaMax PRO - Tudo em 1</h1>
+            <button id="upgradeBtn" class="upgrade-btn">⭐ Fazer Upgrade PRO</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="unlockSection" class="card">
+            <h2>🔓 Desbloquear Ferramenta</h2>
+            <input type="text" id="licenseKey" placeholder="Cole sua chave PRO aqui">
+            <button id="unlockBtn" class="btn-primary">🔓 Desbloquear</button>
+        </div>
+
+        <div id="appSection" class="card hidden">
+            <h2>🔗 Gerador de Posts</h2>
+            <input type="text" id="productUrl" placeholder="Cole o link do produto Shopee/Mercado Livre">
+            <div class="toggle-group">
+                <button id="modeFree" class="toggle-btn active">Modo 3 Posts</button>
+                <button id="modePro" class="toggle-btn">Modo Lote PRO <span class="badge">10 Posts</span></button>
+            </div>
+            <button id="generateBtn" class="btn-primary">🚀 Gerar Tudo</button>
+            
+            <div id="results" class="hidden">
+                <h3>Resultados</h3>
+                <div id="postsContainer"></div>
+                <div id="proFeatures" class="hidden">
+                    <h4>Recursos PRO</h4>
+                    <input type="text" id="webhookUrl" placeholder="URL do Webhook Zapier/Make">
+                    <button id="webhookBtn" class="btn-secondary">📤 Auto-Post</button>
+                    <button id="zipBtn" class="btn-secondary">📦 Baixar ZIP</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pricingSection" class="card">
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>🔥 Avulso</h3>
+                    <div class="price">R$ 4,90</div>
+                    <p>3 Posts por produto</p>
+                    <a href="https://mpago.la/2zbECPA" target="_blank" class="btn-buy-avulso">Comprar Avulso</a>
+                </div>
+                <div class="price-card pro">
+                    <h3>💎 PRO Vitalício</h3>
+                    <div class="price">R$ 97</div>
+                    <p>10 Posts + Auto-Post + ZIP</p>
+                    <a href="https://mpago.la/2oJvLu7" target="_blank" class="btn-buy-pro">Comprar PRO</a>
+                </div>
+            </div>
+            <div class="key-info">
+                💡 Após o pagamento, use a chave <strong>PRO-2026</strong> para desbloquear todos os recursos.
+            </div>
+        </div>
+
+        <div id="modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h2>⚠️ Recurso PRO</h2>
+                <p>Desbloqueie o Modo Lote com 10 posts, Auto-Post e ZIP</p>
+                <div class="modal-buttons">
+                    <a href="https://mpago.la/2zbECPA" target="_blank" class="btn-buy-avulso">R$4,90 - 3 Posts</a>
+                    <a href="https://mpago.la/2oJvLu7" target="_blank" class="btn-buy-pro">R$97 - Vitalício</a>
+                </div>
+                <button id="closeModal">Fechar</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        VendaMax PRO © 2026 - Ferramenta de trabalho para afiliadas
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
