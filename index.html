@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lojinha Shop Ofertas — Lista VIP</title>
+<meta name="description" content="Entre para a Lista VIP da Lojinha Shop Ofertas e receba cupons abaixo de R$50 direto no seu e-mail e WhatsApp.">
+<meta name="theme-color" content="#FF6A00">
+<style>
+  :root{
+    --orange:#FF6A00;
+    --orange-700:#E15200;
+    --orange-100:#FFF1E6;
+    --black:#0B0B0C;
+    --gray-900:#18181b;
+    --gray-700:#3f3f46;
+    --gray-500:#71717a;
+    --gray-200:#e4e4e7;
+    --gray-100:#f4f4f5;
+    --white:#ffffff;
+    --radius:20px;
+    --shadow:0 12px 40px rgba(0,0,0,.08);
+    --shadow-sm:0 4px 14px rgba(0,0,0,.06);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#fff;color:var(--black);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  
+  /* NAV */
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.2px}
+  .logo .dot{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--orange),var(--orange-700));box-shadow:0 6px 16px rgba(255,106,0,.35);position:relative}
+  .logo .dot:after{content:"";position:absolute;inset:6px;background:#000;border-radius:6px;opacity:.9}
+  .logo strong{color:var(--black)}
+  .badge{font-size:11px;font-weight:800;letter-spacing:.8px;background:var(--black);color:#fff;padding:6px 10px;border-radius:999px}
+
+  /* HERO */
+  .hero{padding:12px 0 28px;display:grid;gap:28px}
+  .pill{display:inline-flex;align-items:center;gap:6px;background:var(--orange-100);color:var(--orange-700);font-weight:700;font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid #ffe1c9}
+  h1{font-size:32px;line-height:1.1;letter-spacing:-.8px;margin:14px 0 12px;font-weight:900}
+  h1 span{color:var(--orange);position:relative}
+  .sub{font-size:17px;line-height:1.5;color:var(--gray-700);margin:0 0 20px}
+  .sub a{color:var(--orange);font-weight:700;border-bottom:2px solid var(--orange-100)}
+  .sub a:hover{border-color:var(--orange)}
+  
+  .benefits{display:grid;gap:12px;margin:22px 0 0;padding:0;list-style:none}
+  .benefits li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--gray-200);padding:12px;border-radius:14px}
+  .ico{flex:0 0 38px;height:38px;border-radius:11px;background:var(--orange-100);display:grid;place-items:center;color:var(--orange)}
+  .ico svg{width:20px;height:20px;stroke-width:2.2}
+  .benefits b{display:block;font-size:14.5px;line-height:1.2;margin-bottom:2px}
+  .benefits small{color:var(--gray-500);font-size:13px}
+
+  /* CARD FORM */
+  .card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+  .card h2{margin:0 0 6px;font-size:20px;letter-spacing:-.3px}
+  .card p.helper{margin:0 0 16px;color:var(--gray-500);font-size:14px}
+  form{display:grid;gap:12px}
+  .field{display:grid;gap:6px}
+  label{font-size:13px;font-weight:600;color:var(--gray-900)}
+  input{width:100%;padding:14px 14px;border:1px solid var(--gray-200);border-radius:12px;font-size:16px;outline:none;background:#fff;transition:.15s}
+  input:focus{border-color:var(--orange);box-shadow:0 0 0 4px rgba(255,106,0,.15)}
+  input::placeholder{color:#a1a1aa}
+  .btn{width:100%;appearance:none;border:0;background:linear-gradient(135deg,var(--orange),var(--orange-700));color:#fff;font-weight:800;font-size:16px;padding:15px 18px;border-radius:14px;cursor:pointer;box-shadow:0 10px 24px rgba(255,106,0,.28);transition:transform .08s ease, filter .15s}
+  .btn:active{transform:translateY(1px) scale(.99)}
+  .btn:disabled{opacity:.6;cursor:not-allowed}
+  .trust{display:flex;gap:14px;justify-content:center;margin-top:12px;color:var(--gray-500);font-size:12px;flex-wrap:wrap}
+  .trust span{display:inline-flex;align-items:center;gap:5px}
+  .mini{margin-top:10px;text-align:center;font-size:12px;color:var(--gray-500)}
+
+  /* SOCIAL PROOF */
+  .social{background:var(--black);color:#fff;margin-top:34px;border-radius:24px;padding:22px 18px;text-align:center;position:relative;overflow:hidden}
+  .social:before{content:"";position:absolute;inset:-40%;background:radial-gradient(600px 200px at 50% -20%, rgba(255,106,0,.25), transparent 60%);pointer-events:none}
+  .avatars{display:flex;justify-content:center;margin-bottom:10px}
+  .av{width:32px;height:32px;border-radius:50%;background:#222;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;border:2px solid #000;margin-left:-8px}
+  .av:first-child{margin-left:0}
+  .social h3{margin:6px 0 4px;font-size:18px}
+  .social p{margin:0;color:#c7c7cc;font-size:14px}
+  .stars{display:inline-flex;gap:2px;color:var(--orange);margin-top:8px}
+
+  /* SUCCESS */
+  .success{text-align:center;padding:8px 4px}
+  .check{width:56px;height:56px;margin:4px auto 12px;border-radius:50%;background:var(--orange-100);color:var(--orange);display:grid;place-items:center;font-size:28px;font-weight:900}
+  .success h2{font-size:24px;margin:0 0 8px;letter-spacing:-.4px}
+  .success p{color:var(--gray-700);font-size:15px;line-height:1.5;margin:0 0 16px}
+  .success .btn{display:inline-block;width:auto;padding:13px 20px;margin-bottom:8px}
+  .muted{font-size:12px;color:var(--gray-500)}
+
+  /* FOOTER */
+  footer{padding:28px 0 40px;text-align:center;color:var(--gray-500);font-size:13px}
+  footer a{color:var(--black);font-weight:700}
+  footer a:hover{color:var(--orange)}
+  .disclaimer{margin-top:8px;font-size:11px;text-transform:uppercase;letter-spacing:.6px}
+
+  /* DESKTOP */
+  @media (min-width:900px){
+    .nav{padding:22px 0}
+    .hero{grid-template-columns:1.1fr .9fr;align-items:center;gap:48px;padding:30px 0 40px}
+    h1{font-size:48px;letter-spacing:-1.2px}
+    .sub{font-size:18px}
+    .card{padding:26px}
+    .benefits{grid-template-columns:1fr 1fr 1fr}
+    .benefits li{flex-direction:column;align-items:flex-start;padding:14px}
+    .social{margin-top:48px;padding:28px}
+  }
+
+  /* MOBILE TWEAKS */
+  @media (max-width:390px){
+    h1{font-size:28px}
+    .card{padding:18px}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav" aria-label="Topo">
+      <div class="logo" aria-label="Lojinha Shop Ofertas">
+        <span class="dot" aria-hidden="true"></span>
+        Lojinha <strong>Shop Ofertas</strong>
+      </div>
+      <div class="badge">LISTA VIP</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="copy">
+          <span class="pill">🔥 Só hoje</span>
+          <h1>Digite <span>CUPOM</span> no Instagram e ganhe as <a href="https://mercadolivre.com/sec/1msyiVr" target="_blank" rel="noopener">3 ofertas secretas</a> de hoje</h1>
+          <p class="sub">Entre para a Lista VIP e receba cupons abaixo de R$50 direto no seu e-mail/WhatsApp.</p>
+
+          <ul class="benefits">
+            <li>
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <div><b>Ofertas reais testadas</b><small>Eu compro, testo e só envio o que vale.</small></div>
+            </li>
+            <li>
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v12H5.17L4 17.17V4z"/><path d="M9 12h6M9 8h6"/></svg>
+              </div>
+              <div><b>Sem spam, só o melhor preço</b><small>Máx. 1 envio por dia. Direto ao ponto.</small></div>
+            </li>
+            <li>
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <div><b>Sai primeiro que no feed</b><small>VIP recebe antes de todo mundo.</small></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card" aria-live="polite">
+          <div id="formWrap">
+            <h2>Quero entrar na Lista VIP</h2>
+            <p class="helper">Leva 10 segundos. É grátis.</p>
+            <form id="vipForm" novalidate>
+              <div class="field">
+                <label for="nome">Nome</label>
+                <input id="nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" placeholder="voce@email.com" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="whatsapp">WhatsApp <span style="color:#a1a1aa;font-weight:500">(opcional)</span></label>
+                <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" placeholder="(11) 91234-5678" autocomplete="tel">
+              </div>
+              <button class="btn" id="cta" type="submit">Quero meu CUPOM</button>
+              <div class="trust">
+                <span>✓ Sem spam</span>
+                <span>✓ Sai quando quiser</span>
+                <span>✓ 100% grátis</span>
+              </div>
+              <p class="mini">Ao entrar, você aceita receber ofertas da Lojinha. LGPD respeitada.</p>
+            </form>
+          </div>
+
+          <div id="success" class="success" style="display:none">
+            <div class="check">✓</div>
+            <h2>Obrigado, <span id="userName">VIP</span>! 🎉</h2>
+            <p>Você entrou na Lista VIP e já liberamos suas 3 ofertas secretas de hoje. Aproveite antes que acabe!</p>
+            <a class="btn" href="https://mercadolivre.com/sec/1msyiVr" target="_blank" rel="noopener">Ver ofertas no Mercado Livre</a>
+            <p class="muted">Você também vai receber cupons exclusivos no seu e-mail/WhatsApp.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="social" aria-label="Prova social">
+        <div class="avatars" aria-hidden="true">
+          <div class="av" style="background:#FF6A00">A</div>
+          <div class="av" style="background:#222">M</div>
+          <div class="av" style="background:#444">J</div>
+          <div class="av" style="background:#666">L</div>
+          <div class="av" style="background:#888">+1k</div>
+        </div>
+        <h3>Mais de 1.200 caçadores de oferta já recebem</h3>
+        <p>Junte-se à comunidade que economiza todo dia com cupons abaixo de R$50.</p>
+        <div class="stars" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 Lojinha Shop Ofertas — Lista VIP • Instagram <a href="https://instagram.com/hdmicro.loja" target="_blank" rel="noopener">@hdmicro.loja</a>
+      <div class="disclaimer">Parceria Mercado Livre</div>
+    </footer>
+  </div>
+
+<script>
+(function(){
+  const form = document.getElementById('vipForm');
+  const formWrap = document.getElementById('formWrap');
+  const success = document.getElementById('success');
+  const userName = document.getElementById('userName');
+  const cta = document.getElementById('cta');
+  const wa = document.getElementById('whatsapp');
+  const ML_LINK = 'https://mercadolivre.com/sec/1msyiVr';
+
+  // Máscara simples WhatsApp BR
+  wa.addEventListener('input', e=>{
+    let v = e.target.value.replace(/\D/g,'').slice(0,11);
+    if(v.length>2) v = '('+v.slice(0,2)+') '+v.slice(2);
+    if(v.length>9) v = v.slice(0,10)+'-'+v.slice(10);
+    e.target.value = v;
+  });
+
+  // Restaurar se já cadastrado
+  const saved = localStorage.getItem('lojinha_vip');
+  if(saved){
+    try{
+      const data = JSON.parse(saved);
+      showSuccess(data.nome||'VIP', false);
+    }catch(e){}
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+    const data = {
+      nome: document.getElementById('nome').value.trim(),
+      email: document.getElementById('email').value.trim().toLowerCase(),
+      whatsapp: wa.value.trim(),
+      ts: new Date().toISOString()
+    };
+    
+    localStorage.setItem('lojinha_vip', JSON.stringify(data));
+    
+    cta.disabled = true;
+    cta.textContent = 'Liberando...';
+    
+    // Simula envio e redireciona
+    setTimeout(()=>{
+      showSuccess(data.nome, true);
+    }, 500);
+  });
+
+  function showSuccess(nome, shouldRedirect){
+    const first = (nome||'').split(' ')[0] || 'VIP';
+    userName.textContent = first;
+    formWrap.style.display = 'none';
+    success.style.display = 'block';
+    success.scrollIntoView({behavior:'smooth', block:'center'});
+    
+    if(shouldRedirect){
+      setTimeout(()=>{
+        window.open(ML_LINK, '_blank');
+      }, 1200);
+    }
+  }
+})();
+</script>
+<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
+</body>
+</html>
