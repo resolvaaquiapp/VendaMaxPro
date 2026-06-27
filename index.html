@@ -31,6 +31,7 @@ body {
   color: var(--white);
   min-height: 100vh;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .container {
@@ -49,46 +50,30 @@ header {
   z-index: 100;
 }
 
-.logo-wrapper {
+.logo-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 4px;
+  flex-wrap: wrap;
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
-  background: var(--white);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 2rem;
   font-weight: 900;
-  font-size: 1.5rem;
-  color: var(--orange);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 header h1 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--white);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
   letter-spacing: -0.5px;
 }
 
-.tagline {
-  font-size: 0.875rem;
-  color: rgba(255,255,255,0.9);
-  font-weight: 500;
-}
-
 @media (min-width: 768px) {
-  header h1 { font-size: 2.5rem; }
+  header h1 { font-size: 2.25rem; }
   .container { padding: 32px; }
-  .logo { width: 48px; height: 48px; font-size: 1.75rem; }
 }
 
 .card {
@@ -169,6 +154,7 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  text-decoration: none;
 }
 
 .btn:hover {
@@ -584,133 +570,48 @@ footer {
   font-weight: 700;
 }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+.price-card {
+  background: var(--gray);
   padding: 20px;
-  animation: fadeIn 0.3s ease;
-}
-
-.modal-overlay.show {
-  display: flex;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.modal-content {
-  background: var(--dark);
-  border-radius: 20px;
-  padding: 32px;
-  max-width: 500px;
-  width: 100%;
-  border: 2px solid var(--orange);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  animation: slideUp 0.3s ease;
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.modal-header {
+  border-radius: 12px;
   text-align: center;
-  margin-bottom: 24px;
-}
-
-.modal-icon {
-  font-size: 3rem;
-  margin-bottom: 12px;
-}
-
-.modal-title {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: var(--white);
-  margin-bottom: 8px;
-}
-
-.modal-subtitle {
-  color: #9ca3af;
-  font-size: 0.95rem;
-}
-
-.modal-feature {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
-  background: var(--gray);
-  border-radius: 10px;
-  margin-bottom: 12px;
-}
-
-.modal-feature-icon {
-  font-size: 1.5rem;
-}
-
-.modal-feature-text {
-  flex: 1;
-  font-size: 0.9rem;
-}
-
-.modal-note {
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid var(--error);
-  color: #fca5a5;
-  padding: 14px;
-  border-radius: 10px;
-  margin: 20px 0;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: var(--gray);
-  border: none;
-  color: var(--white);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 2px solid transparent;
   transition: all 0.3s ease;
 }
 
-.modal-close:hover {
-  background: var(--error);
-  transform: rotate(90deg);
+.price-card:hover {
+  border-color: var(--orange);
+  transform: translateY(-4px);
 }
 
-.lock-icon {
-  display: inline-block;
-  margin-right: 6px;
+.price-card-pro {
+  border-color: var(--pro);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, var(--gray) 100%);
+}
+
+.price-value {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--orange);
+  margin: 12px 0;
+}
+
+.price-value-pro {
+  color: var(--pro);
+}
+
+.unlock-box {
+  background: var(--gray);
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
 }
 
 @media (max-width: 390px) {
   .card { padding: 16px; }
-  .modal-content { padding: 24px; }
-  .modal-title { font-size: 1.5rem; }
+  .btn { font-size: 0.9rem; padding: 12px 16px; }
+  .card-title { font-size: 1.1rem; }
+  .checkbox-group { grid-template-columns: 1fr; }
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -718,42 +619,58 @@ footer {
 <body>
 
 <header>
-  <div class="logo-wrapper">
-    <div class="logo">VM</div>
-    <h1>VendaMax PRO</h1>
+  <div class="logo-wrap">
+    <span class="logo">🏆</span>
+    <h1>VendaMax PRO - Tudo em 1</h1>
   </div>
-  <div class="tagline">Gerador de Anúncios com IA para Afiliadas</div>
 </header>
 
 <div class="container">
   
   <div id="alertBox" class="alert"></div>
 
-  <div class="card">
-    <div class="card-title">
-      ⚡ Escolha seu Plano
-      <span class="plan-badge" id="planBadge">🔒 Bloqueado</span>
+  <div class="card" id="unlockCard">
+    <div class="card-title">🔓 Desbloquear VendaMax PRO</div>
+    <div class="unlock-box">
+      <label for="unlockKey">Chave de Acesso</label>
+      <input type="text" id="unlockKey" placeholder="Digite sua chave PRO-2026">
+      <button class="btn btn-pro" id="btnUnlock" style="margin-top: 12px;">🔓 Desbloquear</button>
     </div>
-    <div class="toggle-group">
-      <button class="toggle-btn" id="toggleAvulso" onclick="showPaymentModal('avulso')">R$ 4,90 Avulso - 3 Posts</button>
-      <button class="toggle-btn toggle-btn-pro" id="togglePro" onclick="showPaymentModal('pro')">💎 PRO Vitalício - 10 Posts Lote</button>
+    <div class="grid grid-2">
+      <div class="price-card">
+        <div style="font-weight: 700; margin-bottom: 8px;">🔥 Avulso</div>
+        <div class="price-value">R$ 4,90</div>
+        <div style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 16px;">3 Posts por produto</div>
+        <a href="https://mpago.la/2zbECPA" target="_blank" class="btn">Comprar Avulso</a>
+      </div>
+      <div class="price-card price-card-pro">
+        <div style="font-weight: 700; margin-bottom: 8px;">💎 PRO Vitalício</div>
+        <div class="price-value price-value-pro">R$ 97</div>
+        <div style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 16px;">10 Posts + Auto-Post + ZIP</div>
+        <a href="https://mpago.la/2oJvLu7" target="_blank" class="btn btn-pro">Comprar PRO</a>
+      </div>
     </div>
-    <div id="modoInfo" class="alert alert-info show">
-      🔒 <strong>Atenção:</strong> Escolha um plano acima para desbloquear a geração de anúncios, modo lote, auto-post e pacote ZIP.
+    <div class="note">
+      💡 Após o pagamento, use a chave <strong>PRO-2026</strong> para desbloquear todos os recursos.
     </div>
   </div>
 
-  <div id="unlockSection" class="card">
-    <div class="card-title">🔑 Já tem uma chave? Desbloqueie aqui</div>
-    <div class="form-group">
-      <input type="text" id="licenseKey" placeholder="Cole sua chave de acesso aqui (Ex: PRO-2026)">
-    </div>
-    <button class="btn btn-success" onclick="unlockWithKey()">
-      ✅ Desbloquear Ferramenta
-    </button>
-  </div>
+  <div id="appContent" class="hidden">
 
-  <div id="mainContent" class="hidden">
+    <div class="card">
+      <div class="card-title">
+        ⚡ Escolha seu Plano
+        <span class="plan-badge" id="planBadge">💎 PRO Ativo</span>
+      </div>
+      <div class="toggle-group">
+        <button class="toggle-btn" id="toggleAvulso" onclick="setModo('avulso')">R$ 4,90 Avulso - 3 Posts</button>
+        <button class="toggle-btn toggle-btn-pro active" id="togglePro" onclick="setModo('pro')">💎 PRO Vitalício - 10 Posts Lote</button>
+      </div>
+      <div id="modoInfo" class="alert alert-warning show">
+        💎 <strong>Modo Lote PRO Ativo:</strong> Gere 10 variações de anúncios com ângulos diferentes + Auto-Post + Pacote ZIP para redes.
+      </div>
+    </div>
+
     <div class="card">
       <div class="card-title">📦 Dados do Produto</div>
       <form id="productForm">
@@ -780,8 +697,8 @@ footer {
           <label for="linkAfiliado">Link do Afiliado (com seu ID)</label>
           <input type="url" id="linkAfiliado" placeholder="https://seulinkdeafiliado.com/..." required>
         </div>
-        <button type="submit" class="btn" id="btnBuscar">
-          🔍 BUSCAR PRODUTO + GERAR POSTS
+        <button type="submit" class="btn btn-pro" id="btnBuscar">
+          🔥 BUSCAR PRODUTO + GERAR LOTE PRO
         </button>
       </form>
       <div class="note">
@@ -823,9 +740,20 @@ footer {
       <div class="card">
         <div class="card-title">
           🎯 Copies Geradas
-          <span class="badge" id="copyCountBadge">3 Posts</span>
+          <span class="badge badge-pro" id="copyCountBadge">10 Variações PRO</span>
         </div>
-        <div class="tabs" id="copyTabs"></div>
+        <div class="tabs" id="copyTabs">
+          <button class="tab tab-pro active" data-tab="relampago">Oferta Relâmpago</button>
+          <button class="tab tab-pro" data-tab="social">Prova Social</button>
+          <button class="tab tab-pro" data-tab="unboxing">Unboxing</button>
+          <button class="tab tab-pro hidden" data-tab="comparativo">Comparativo</button>
+          <button class="tab tab-pro hidden" data-tab="dor">Dor vs Solução</button>
+          <button class="tab tab-pro hidden" data-tab="escassez">Escassez</button>
+          <button class="tab tab-pro hidden" data-tab="bonus">Bônus</button>
+          <button class="tab tab-pro hidden" data-tab="garantia">Garantia</button>
+          <button class="tab tab-pro hidden" data-tab="depoimento">Depoimento</button>
+          <button class="tab tab-pro hidden" data-tab="cta">CTA Direto</button>
+        </div>
         <div id="copyContainers"></div>
       </div>
 
@@ -885,7 +813,7 @@ footer {
         <button class="btn btn-pro" id="btnPrepararPacote" style="margin-top: 16px;">📦 Preparar Pacote para Redes (.ZIP)</button>
       </div>
 
-      <div class="card" id="autopostSection">
+      <div class="card hidden" id="autopostSection">
         <div class="card-title">🔗 Conectar Auto-Post <span class="badge badge-pro">PRO</span></div>
         <div class="alert alert-warning show">
           <strong>PRO users:</strong> Conecte Zapier, Make ou n8n para postar automaticamente. Cole seu Webhook URL abaixo.
@@ -924,6 +852,7 @@ footer {
       <div class="card-title">📜 Histórico <span class="badge" id="historyCount">0</span></div>
       <div id="historyList"></div>
     </div>
+
   </div>
 
 </div>
@@ -932,37 +861,14 @@ footer {
   VendaMax PRO © 2026 - Ferramenta de trabalho para afiliadas
 </footer>
 
-<!-- Payment Modal -->
-<div class="modal-overlay" id="paymentModal">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closePaymentModal()">✕</button>
-    <div class="modal-header">
-      <div class="modal-icon" id="modalIcon">💎</div>
-      <div class="modal-title" id="modalTitle">Desbloquear PRO Vitalício</div>
-      <div class="modal-subtitle">Acesso completo à ferramenta</div>
-    </div>
-    
-    <div id="modalFeatures"></div>
-    
-    <div class="modal-note">
-      ⚠️ <strong>IMPORTANTE:</strong> Após o pagamento, copie sua chave na tela de aprovação: <u>PRO-2026</u>. Volte aqui e cole no campo "Já tem uma chave?" para desbloquear imediatamente.
-    </div>
-    
-    <a href="#" id="paymentLink" class="btn btn-pro" target="_blank" style="margin-bottom: 12px;">
-      💳 PAGAR AGORA NO MERCADO PAGO
-    </a>
-    
-    <button class="btn btn-secondary" onclick="closePaymentModal()">Voltar</button>
-  </div>
-</div>
-
 <script>
 const state = {
   currentProduct: null,
   history: [],
-  modo: null,
+  modo: 'pro',
   copies: {},
-  unlocked: false
+  isUnlocked: false,
+  proKey: 'PRO-2026'
 };
 
 const angulosPRO = [
@@ -980,19 +886,31 @@ const angulosPRO = [
 
 const angulosAvulso = ['relampago', 'social', 'cta'];
 
-const PAYMENT_LINKS = {
-  avulso: 'https://mpago.la/2zbECPA',
-  pro: 'https://mpago.la/2oJvLu7'
-};
-
 document.addEventListener('DOMContentLoaded', () => {
   loadHistory();
   loadWebhook();
-  checkUnlock();
+  checkUnlockStatus();
   setupEventListeners();
+  setModo('pro');
 });
 
+function checkUnlockStatus() {
+  const saved = localStorage.getItem('vendamax_pro_key');
+  if (saved === state.proKey) {
+    unlockApp();
+  }
+}
+
+function unlockApp() {
+  state.isUnlocked = true;
+  document.getElementById('unlockCard').classList.add('hidden');
+  document.getElementById('appContent').classList.remove('hidden');
+  localStorage.setItem('vendamax_pro_key', state.proKey);
+  showAlert('VendaMax PRO desbloqueado com sucesso!', 'success');
+}
+
 function setupEventListeners() {
+  document.getElementById('btnUnlock').addEventListener('click', handleUnlock);
   document.getElementById('productForm').addEventListener('submit', handleBuscarProduto);
   document.getElementById('btnManualGerar').addEventListener('click', handleManualGerar);
   document.getElementById('btnShareVip').addEventListener('click', handleShareVip);
@@ -1001,111 +919,16 @@ function setupEventListeners() {
   document.getElementById('btnAutoPost').addEventListener('click', handleAutoPost);
 }
 
-function checkUnlock() {
-  const savedKey = localStorage.getItem('vendamax_key');
-  const savedModo = localStorage.getItem('vendamax_modo');
-  
-  if (savedKey === 'PRO-2026' && savedModo) {
-    state.unlocked = true;
-    state.modo = savedModo;
-    showMainContent();
-    setModo(savedModo);
-  }
-}
-
-function unlockWithKey() {
-  const key = document.getElementById('licenseKey').value.trim();
-  
-  if (key === 'PRO-2026') {
-    localStorage.setItem('vendamax_key', key);
-    if (!state.modo) {
-      localStorage.setItem('vendamax_modo', 'pro');
-      state.modo = 'pro';
-    }
-    state.unlocked = true;
-    showMainContent();
-    setModo(state.modo);
-    showAlert('🎉 Ferramenta desbloqueada com sucesso! Bem-vinda ao VendaMax PRO!', 'success');
+function handleUnlock() {
+  const key = document.getElementById('unlockKey').value.trim();
+  if (key === state.proKey) {
+    unlockApp();
   } else {
-    showAlert('Chave inválida. Verifique e tente novamente.', 'error');
+    showAlert('Chave inválida. Use PRO-2026 ou compre o acesso.', 'error');
   }
-}
-
-function showMainContent() {
-  document.getElementById('unlockSection').classList.add('hidden');
-  document.getElementById('mainContent').classList.remove('hidden');
-}
-
-function showPaymentModal(plano) {
-  const modal = document.getElementById('paymentModal');
-  const icon = document.getElementById('modalIcon');
-  const title = document.getElementById('modalTitle');
-  const features = document.getElementById('modalFeatures');
-  const link = document.getElementById('paymentLink');
-  
-  if (plano === 'pro') {
-    icon.textContent = '💎';
-    title.textContent = 'Desbloquear PRO Vitalício';
-    link.href = PAYMENT_LINKS.pro;
-    features.innerHTML = `
-      <div class="modal-feature">
-        <span class="modal-feature-icon">✅</span>
-        <span class="modal-feature-text"><strong>10 Variações de Posts</strong> com ângulos diferentes</span>
-      </div>
-      <div class="modal-feature">
-        <span class="modal-feature-icon">✅</span>
-        <span class="modal-feature-text"><strong>Modo Lote PRO</strong> - Gere campanhas completas</span>
-      </div>
-      <div class="modal-feature">
-        <span class="modal-feature-icon">✅</span>
-        <span class="modal-feature-text"><strong>Auto-Post</strong> via Zapier/Make/n8n</span>
-      </div>
-      <div class="modal-feature">
-        <span class="modal-feature-icon">✅</span>
-        <span class="modal-feature-text"><strong>Pacote ZIP</strong> personalizado para redes</span>
-      </div>
-      <div class="modal-feature">
-        <span class="modal-feature-icon">✅</span>
-        <span class="modal-feature-text"><strong>Acesso Vitalício</strong> sem mensalidades</span>
-      </div>
-    `;
-  } else {
-    icon.textContent = '💰';
-    title.textContent = 'Desbloquear Avulso R$ 4,90';
-    link.href = PAYMENT_LINKS.avulso;
-    features.innerHTML = `
-      <div class="modal-feature">
-        <span class="modal-feature-icon">✅</span>
-        <span class="modal-feature-text"><strong>3 Posts</strong> prontos (Relâmpago, Prova Social, CTA)</span>
-      </div>
-      <div class="modal-feature">
-        <span class="modal-feature-icon">✅</span>
-        <span class="modal-feature-text"><strong>Geração Ilimitada</strong> de produtos</span>
-      </div>
-      <div class="modal-feature">
-        <span class="modal-feature-icon">⚠️</span>
-        <span class="modal-feature-text">Sem Auto-Post ou Pacote ZIP</span>
-      </div>
-    `;
-  }
-  
-  modal.classList.add('show');
-  
-  link.onclick = function() {
-    setTimeout(() => {
-      localStorage.setItem('vendamax_modo', plano);
-      state.modo = plano;
-    }, 500);
-  };
-}
-
-function closePaymentModal() {
-  document.getElementById('paymentModal').classList.remove('show');
 }
 
 function setModo(modo) {
-  if (!state.unlocked) return;
-  
   state.modo = modo;
   const isPro = modo === 'pro';
   
@@ -1133,6 +956,14 @@ function setModo(modo) {
 
 function updateTabs() {
   const isPro = state.modo === 'pro';
+  const tabs = document.querySelectorAll('#copyTabs .tab');
+  
+  tabs.forEach(tab => {
+    const tabId = tab.dataset.tab;
+    const isInAvulso = angulosAvulso.includes(tabId);
+    tab.classList.toggle('hidden', !isPro && !isInAvulso);
+  });
+  
   document.getElementById('copyCountBadge').textContent = isPro ? '10 Variações PRO' : '3 Posts Avulso';
   
   if (state.currentProduct) {
@@ -1295,184 +1126,16 @@ function generateAll() {
 
 function generateAllCopies(p) {
   const generators = {
-    relampago: (p) => `⚡ OFERTA RELÂMPAGO ${p.loja.toUpperCase()}! ⚡
-
-${p.titulo}
-
-💰 DE: ~~R$ 299~~ → POR: ${p.preco}
-🔥 Economia IMPERDÍVEL!
-
-⏰ Só HOJE! Cupom acaba em poucas horas!
-⏰ Estoque: ÚLTIMAS UNIDADES!
-
-👉 COMPRAR AGORA: ${p.linkAfiliado}
-
-Comenta CUPOM que te envio no direct!
-Marca a amiga que PRECISA dessa oferta!
-
-#achados${p.loja.toLowerCase()} #ofertarelampago #cupom #promocao #desconto #achadinhos #ofertadodia`,
-
-    social: (p) => `👥 TODO MUNDO TÁ COMPRANDO! 👥
-
-${p.titulo}
-
-✨ MAIS DE 500 CLIENTES SATISFEITOS!
-⭐ Avaliação: 4.9/5 estrelas
-
-💰 Por apenas ${p.preco}
-
-🗣️ "Chegou super rápido e é EXATAMENTE como na foto!" - Ana S.
-🗣️ "Melhor compra do mês! Vale cada centavo!" - Carla M.
-
-🔥 Não fica de fora dessa tendência!
-👉 Garanta o seu: ${p.linkAfiliado}
-
-#provasocial #maisvendido #${p.loja.toLowerCase()} #achadinhos #trend #viral`,
-
-    unboxing: (p) => `📦 UNBOXING ESPECIAL! 📦
-
-Acabei de receber esse ACHADO da ${p.loja}!
-
-🎁 ${p.titulo}
-💰 Paguei só ${p.preco} com CUPOM!
-
-✨ Primeira impressão:
-✅ Qualidade SURPREENDENTE
-✅ Embalagem perfeita
-✅ Chegou em 3 dias
-
-🎬 Quer ver o unboxing completo?
-💬 Comenta UNBOXING que te mando o vídeo!
-
-👉 Link com desconto: ${p.linkAfiliado}
-
-#unboxing #achados${p.loja.toLowerCase()} #review #cupom #promocao`,
-
-    comparativo: (p) => `⚖️ COMPARATIVO: Vale a pena? ⚖️
-
-Na loja física: R$ 399 😱
-Na ${p.loja} COM CUPOM: ${p.preco} 😍
-
-📊 ECONOMIA DE R$ ${calculaEconomia(p.preco)}!
-
-${p.titulo}
-✅ Mesma qualidade
-✅ Mesma garantia
-✅ Entrega rápida
-
-💡 Por que pagar mais?
-👉 Aproveite: ${p.linkAfiliado}
-
-⏰ Oferta por tempo LIMITADO!
-
-#comparativo #economize #achados${p.loja.toLowerCase()} #cupom #melhorpreço`,
-
-    dor: (p) => `💊 CANSADA DE PAGAR CARO? 💊
-
-❌ DOR: Preços absurdos na loja
-❌ DOR: Sem cupom de desconto
-❌ DOR: Frete caríssimo
-
-✅ SOLUÇÃO: ${p.titulo}
-✅ SOLUÇÃO: Só ${p.preco} na ${p.loja}
-✅ SOLUÇÃO: CUPOM + FRETE GRÁTIS*
-
-🎯 Resolva AGORA seu problema!
-👉 ${p.linkAfiliado}
-
-*Consulte condições
-#solução #economia #achados${p.loja.toLowerCase()} #dorvssolução`,
-
-    escassez: (p) => `⏰ ÚLTIMAS HORAS! ⏰
-
-🚨 ATENÇÃO: Estoque acabando RÁPIDO!
-
-${p.titulo}
-💰 ${p.preco}
-
-📊 RESTAM: Apenas 7 unidades
-⏳ Cupom expira em: 2 horas
-
-⚠️ Depois que acabar, volta ao preço normal!
-
-🏃 CORRE: ${p.linkAfiliado}
-
-Não deixe pra depois! Amanhã pode ser tarde demais!
-
-#escassez #últimasunidades #corree #achados${p.loja.toLowerCase()} #ofertadodia`,
-
-    bonus: (p) => `🎁 BÔNUS EXCLUSIVO! 🎁
-
-Comprando ${p.titulo} HOJE você GANHA:
-
-🎁 CUPOM de ${p.preco}
-🎁 Frete GRÁTIS* 
-🎁 Brinde surpresa
-🎁 Garantia estendida
-
-💰 Total de BÔNUS: R$ 150+
-
-⚡ Oferta válida só HOJE!
-👉 Resgatar bônus: ${p.linkAfiliado}
-
-Compartilha pra amiga não perder!
-
-*Bônus válidos por tempo limitado
-#bonus #presente #achados${p.loja.toLowerCase()} #cupomexclusivo`,
-
-    garantia: (p) => `✅ COMPRA 100% SEGURA! ✅
-
-${p.titulo}
-💰 ${p.preco}
-
-🛡️ GARANTIAS:
-✅ 7 dias para trocar/devolver
-✅ Produto original ${p.loja}
-✅ Pagamento seguro
-✅ Entrega garantida ou dinheiro de volta
-
-😌 Compre SEM MEDO!
-👉 Link seguro: ${p.linkAfiliado}
-
-Dúvidas? Comenta GARANTIA!
-#comprasegura #garantia #confiança #achados${p.loja.toLowerCase()}`,
-
-    depoimento: (p) => `💬 DEPOIMENTO REAL 💬
-
-"Gente, PRECISO contar pra vocês!
-
-Comprei ${p.titulo} na ${p.loja} por ${p.preco} com cupom!
-
-Chegou em 4 dias, PERFEITO!
-Qualidade MUITO melhor que esperava!
-
-Já indiquei pra 3 amigas e TODAS amaram!
-
-Se você tá na dúvida: COMPRA!
-Vale MUITO a pena! 🌟"
-
-- Juliana, cliente verificada ✅
-
-👉 Link que usei: ${p.linkAfiliado}
-
-#depoimento #clientefeliz #review #achados${p.loja.toLowerCase()}`,
-
-    cta: (p) => `👉 COMPRE AGORA 👉
-
-${p.titulo}
-💰 ${p.preco}
-
-🎯 3 MOTIVOS PRA COMPRAR HOJE:
-1️⃣ Menor preço do ano
-2️⃣ CUPOM exclusivo ativo
-3️⃣ Estoque acabando
-
-⚡ CLIQUE AQUI: ${p.linkAfiliado}
-
-⏰ Não perca tempo!
-🛍️ Última chance com esse desconto!
-
-#ctadireto #compreagora #achados${p.loja.toLowerCase()} #promocao`
+    relampago: (p) => `⚡ OFERTA RELÂMPAGO ${p.loja.toUpperCase()}! ⚡\n\n${p.titulo}\n\n💰 DE: ~~R$ 299~~ → POR: ${p.preco}\n🔥 Economia IMPERDÍVEL!\n\n⏰ Só HOJE! Cupom acaba em poucas horas!\n⏰ Estoque: ÚLTIMAS UNIDADES!\n\n👉 COMPRAR AGORA: ${p.linkAfiliado}\n\nComenta CUPOM que te envio no direct!\nMarca a amiga que PRECISA dessa oferta!\n\n#achados${p.loja.toLowerCase()} #ofertarelampago #cupom #promocao #desconto #achadinhos #ofertadodia`,
+    social: (p) => `👥 TODO MUNDO TÁ COMPRANDO! 👥\n\n${p.titulo}\n\n✨ MAIS DE 500 CLIENTES SATISFEITOS!\n⭐ Avaliação: 4.9/5 estrelas\n\n💰 Por apenas ${p.preco}\n\n🗣️ "Chegou super rápido e é EXATAMENTE como na foto!" - Ana S.\n🗣️ "Melhor compra do mês! Vale cada centavo!" - Carla M.\n\n🔥 Não fica de fora dessa tendência!\n👉 Garanta o seu: ${p.linkAfiliado}\n\n#provasocial #maisvendido #${p.loja.toLowerCase()} #achadinhos #trend #viral`,
+    unboxing: (p) => `📦 UNBOXING ESPECIAL! 📦\n\nAcabei de receber esse ACHADO da ${p.loja}!\n\n🎁 ${p.titulo}\n💰 Paguei só ${p.preco} com CUPOM!\n\n✨ Primeira impressão:\n✅ Qualidade SURPREENDENTE\n✅ Embalagem perfeita\n✅ Chegou em 3 dias\n\n🎬 Quer ver o unboxing completo?\n💬 Comenta UNBOXING que te mando o vídeo!\n\n👉 Link com desconto: ${p.linkAfiliado}\n\n#unboxing #achados${p.loja.toLowerCase()} #review #cupom #promocao`,
+    comparativo: (p) => `⚖️ COMPARATIVO: Vale a pena? ⚖️\n\nNa loja física: R$ 399 😱\nNa ${p.loja} COM CUPOM: ${p.preco} 😍\n\n📊 ECONOMIA DE R$ ${calculaEconomia(p.preco)}!\n\n${p.titulo}\n✅ Mesma qualidade\n✅ Mesma garantia\n✅ Entrega rápida\n\n💡 Por que pagar mais?\n👉 Aproveite: ${p.linkAfiliado}\n\n⏰ Oferta por tempo LIMITADO!\n\n#comparativo #economize #achados${p.loja.toLowerCase()} #cupom #melhorpreço`,
+    dor: (p) => `💊 CANSADA DE PAGAR CARO? 💊\n\n❌ DOR: Preços absurdos na loja\n❌ DOR: Sem cupom de desconto\n❌ DOR: Frete caríssimo\n\n✅ SOLUÇÃO: ${p.titulo}\n✅ SOLUÇÃO: Só ${p.preco} na ${p.loja}\n✅ SOLUÇÃO: CUPOM + FRETE GRÁTIS*\n\n🎯 Resolva AGORA seu problema!\n👉 ${p.linkAfiliado}\n\n*Consulte condições\n#solução #economia #achados${p.loja.toLowerCase()} #dorvssolução`,
+    escassez: (p) => `⏰ ÚLTIMAS HORAS! ⏰\n\n🚨 ATENÇÃO: Estoque acabando RÁPIDO!\n\n${p.titulo}\n💰 ${p.preco}\n\n📊 RESTAM: Apenas 7 unidades\n⏳ Cupom expira em: 2 horas\n\n⚠️ Depois que acabar, volta ao preço normal!\n\n🏃 CORRE: ${p.linkAfiliado}\n\nNão deixe pra depois! Amanhã pode ser tarde demais!\n\n#escassez #últimasunidades #corree #achados${p.loja.toLowerCase()} #ofertadodia`,
+    bonus: (p) => `🎁 BÔNUS EXCLUSIVO! 🎁\n\nComprando ${p.titulo} HOJE você GANHA:\n\n🎁 CUPOM de ${p.preco}\n🎁 Frete GRÁTIS* \n🎁 Brinde surpresa\n🎁 Garantia estendida\n\n💰 Total de BÔNUS: R$ 150+\n\n⚡ Oferta válida só HOJE!\n👉 Resgatar bônus: ${p.linkAfiliado}\n\nCompartilha pra amiga não perder!\n\n*Bônus válidos por tempo limitado\n#bonus #presente #achados${p.loja.toLowerCase()} #cupomexclusivo`,
+    garantia: (p) => `✅ COMPRA 100% SEGURA! ✅\n\n${p.titulo}\n💰 ${p.preco}\n\n🛡️ GARANTIAS:\n✅ 7 dias para trocar/devolver\n✅ Produto original ${p.loja}\n✅ Pagamento seguro\n✅ Entrega garantida ou dinheiro de volta\n\n😌 Compre SEM MEDO!\n👉 Link seguro: ${p.linkAfiliado}\n\nDúvidas? Comenta GARANTIA!\n#comprasegura #garantia #confiança #achados${p.loja.toLowerCase()}`,
+    depoimento: (p) => `💬 DEPOIMENTO REAL 💬\n\n"Gente, PRECISO contar pra vocês!\n\nComprei ${p.titulo} na ${p.loja} por ${p.preco} com cupom!\n\nChegou em 4 dias, PERFEITO!\nQualidade MUITO melhor que esperava!\n\nJá indiquei pra 3 amigas e TODAS amaram!\n\nSe você tá na dúvida: COMPRA!\nVale MUITO a pena! 🌟"\n\n- Juliana, cliente verificada ✅\n\n👉 Link que usei: ${p.linkAfiliado}\n\n#depoimento #clientefeliz #review #achados${p.loja.toLowerCase()}`,
+    cta: (p) => `👉 COMPRE AGORA 👉\n\n${p.titulo}\n💰 ${p.preco}\n\n🎯 3 MOTIVOS PRA COMPRAR HOJE:\n1️⃣ Menor preço do ano\n2️⃣ CUPOM exclusivo ativo\n3️⃣ Estoque acabando\n\n⚡ CLIQUE AQUI: ${p.linkAfiliado}\n\n⏰ Não perca tempo!\n🛍️ Última chance com esse desconto!\n\n#ctadireto #compreagora #achados${p.loja.toLowerCase()} #promocao`
   };
   
   state.copies = {};
@@ -1489,20 +1152,11 @@ function calculaEconomia(precoStr) {
 function renderCopies() {
   const isPro = state.modo === 'pro';
   const container = document.getElementById('copyContainers');
-  const tabsContainer = document.getElementById('copyTabs');
   container.innerHTML = '';
-  tabsContainer.innerHTML = '';
   
   const angulosToShow = isPro ? angulosPRO : angulosPRO.filter(a => angulosAvulso.includes(a.id));
   
   angulosToShow.forEach((angulo, index) => {
-    const tab = document.createElement('button');
-    tab.className = `tab ${isPro ? 'tab-pro' : ''} ${index === 0 ? 'active' : ''}`;
-    tab.dataset.tab = angulo.id;
-    tab.textContent = angulo.name;
-    tab.addEventListener('click', () => switchTab(angulo.id));
-    tabsContainer.appendChild(tab);
-    
     const div = document.createElement('div');
     div.className = `tab-content ${index === 0 ? 'active' : ''}`;
     div.id = `tab-${angulo.id}`;
@@ -1516,6 +1170,13 @@ function renderCopies() {
       </div>
     `;
     container.appendChild(div);
+  });
+  
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      const tabName = e.target.dataset.tab;
+      switchTab(tabName);
+    });
   });
 }
 
@@ -1574,7 +1235,6 @@ async function handlePrepararPacote() {
   try {
     const zip = new JSZip();
     const p = state.currentProduct;
-    
     const folder = zip.folder('VendaMax_Pacote');
     
     if (p.imagem) {
@@ -1599,25 +1259,7 @@ async function handlePrepararPacote() {
       gerado_em: new Date().toISOString()
     }, null, 2));
     
-    folder.file('LEIA_ME.txt', `VendaMax PRO - Pacote Gerado
-================================
-
-Produto: ${p.titulo}
-Preço: ${p.preco}
-Loja: ${p.loja}
-Link: ${p.linkAfiliado}
-
-Redes selecionadas: ${redesSelecionadas.join(', ')}
-Data: ${new Date().toLocaleString('pt-BR')}
-
-Como usar:
-1. Use as imagens na pasta
-2. Copie o .txt da rede desejada
-3. Cole na legenda do post
-4. Publique!
-
-Sucesso nas vendas! 🚀
-`);
+    folder.file('LEIA_ME.txt', `VendaMax PRO - Pacote Gerado\n================================\n\nProduto: ${p.titulo}\nPreço: ${p.preco}\nLoja: ${p.loja}\nLink: ${p.linkAfiliado}\n\nRedes selecionadas: ${redesSelecionadas.join(', ')}\nData: ${new Date().toLocaleString('pt-BR')}\n\nComo usar:\n1. Use as imagens na pasta\n2. Copie o .txt da rede desejada\n3. Cole na legenda do post\n4. Publique!\n\nSucesso nas vendas! 🚀\n`);
     
     const content = await zip.generateAsync({ type: 'blob' });
     const url = URL.createObjectURL(content);
@@ -1804,7 +1446,6 @@ ${ofertasHTML}
 <footer>VendaMax PRO © 2026 - Links de afiliado</footer>
 </div>
 <script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
-<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
 </body>
 </html>`;
 }
@@ -1844,9 +1485,7 @@ function loadHistory() {
       descricao: '',
       timestamp: new Date().toISOString()
     };
-    if (state.unlocked) {
-      generateAll();
-    }
+    generateAll();
   }
 }
 
@@ -1861,19 +1500,24 @@ function renderHistory() {
     return;
   }
   
-  list.innerHTML = state.history.map(p => `
-    <div class="history-item" onclick='loadFromHistory(${JSON.stringify(p).replace(/'/g, "&apos;")})'>
-      <div class="history-item-title">${p.titulo}</div>
-      <div class="history-item-meta">${p.loja} • ${p.preco} • ${new Date(p.timestamp).toLocaleDateString('pt-BR')}</div>
-    </div>
-  `).join('');
+  list.innerHTML = state.history.map(p => {
+    const escaped = JSON.stringify(p).replace(/'/g, "&apos;");
+    return `
+      <div class="history-item" onclick='loadFromHistory(${escaped})'>
+        <div class="history-item-title">${escapeHtml(p.titulo)}</div>
+        <div class="history-item-meta">${escapeHtml(p.loja)} • ${escapeHtml(p.preco)} • ${new Date(p.timestamp).toLocaleDateString('pt-BR')}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
 }
 
 function loadFromHistory(product) {
-  if (!state.unlocked) {
-    showAlert('Desbloqueie a ferramenta primeiro para carregar produtos do histórico', 'error');
-    return;
-  }
   state.currentProduct = product;
   document.getElementById('loja').value = product.loja;
   document.getElementById('linkProduto').value = product.linkProduto;
